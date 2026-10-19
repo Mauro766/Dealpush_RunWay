@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Automotive Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Sansation:ital,wght@0,300;0,400;0,700;1,300&display=swap"
+        rel="stylesheet">
+    <script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/assets/index-DdocuRsD.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-95Edle6D.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <!-- Floating Pill Izquierda: Logo + Links + Menú Extra -->
+        <div class="header-pill header-pill--left">
+            <a href="#" class="header_logo" aria-label="DealPush Inicio">
+                <span class="logo-brand">DealPush</span>
+            </a>
+
+            <nav class="header_nav-links" aria-label="Navegación principal">
+                <a href="#catalogo" class="header_nav-link">Catálogo</a>
+                <a href="#contacto" class="header_nav-link">Modelos</a>
+                <a href="#contacto-form" class="header_nav-link">Financiación</a>
+                <a href="#ubicacion" class="header_nav-link header_nav-link--extra">Servicios</a>
+            </nav>
+
+            <button class="header-dots-btn" id="menuToggleBtn" aria-label="Más opciones" aria-expanded="false" type="button">
+                <svg width="6" height="15" viewBox="0 0 6 15" fill="currentColor">
+                    <circle cx="3" cy="3.5" r="1.6" />
+                    <circle cx="3" cy="11.5" r="1.6" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Floating Pill Derecha: Tasación + Botón Cotizar -->
+        <div class="header-pill header-pill--right">
+            <a href="#contacto-form" class="header-action-secondary">Tasación</a>
+            <a href="#contacto-form" class="header-cta-btn">Cotizar</a>
+        </div>
+    </header>
+    <main id="hero">
+        <div id="scene"></div>
+        <div class="hero_container">
+
+
+            <div class="hero_info">
+                <p class="hero_description">
+                    Explora, interactúa con nuestros<br class="desktop_br">
+                    modelos y descubre una experiencia<br class="desktop_br">
+                    automotriz exclusiva e innovadora.
+                </p>
+            </div>
+
+            <div class="hero_info_step2">
+                <p class="hero_description">
+                    Diseño, presencia y tecnología.<br class="desktop_br">
+                    Conocé de cerca los vehículos que<br class="desktop_br">
+                    hacen la diferencia.
+                </p>
+            </div>
+
+            <div class="hero_step3">
+                <div class="hero_step3_left">
+                    <p class="hero_step3_text">Tu próximo auto te espera.</p>
+                </div>
+                <div class="hero_step3_right">
+                    <p class="hero_step3_text">
+                        Explorá nuestro catálogo y<br class="desktop_br">
+                        encontrá el vehículo ideal para tu<br class="desktop_br">
+                        próximo camino.
+                    </p>
+                </div>
+            </div>
+
+            <footer class="hero_footer">
+                <span class="hero_location">Mendoza,Argentina</span>
+                <div class="hero_scroll" id="heroScrollBtn" title="Desplazarse">
+                    <svg width="26" height="15" viewBox="0 0 26 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 2.5L13 12.5L23.5 2.5" stroke="currentColor" stroke-width="3.2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </footer>
+        </div>
+
+        <div class="hero-status">THREE.JS — INITIALIZING</div>
+    </main>
+
+    <section class="card_container" id="catalogo" data-title="Automotores en Venta">
+        <div class="card-padre">
+
+            <!-- Header: disponible + filtros -->
+            <div class="title-container">
+                <div class="disponeble">
+                    <span class="disponible-label">Disponible</span>
+                    <span class="disponible-number">50</span>
+                </div>
+                <div class="icons-buttons">
+                    <button class="filter-btn">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAXxJREFUSIntlD1Lw0Acxp//pdLEF+rL4tRFVwepJi0IuoniZr+B4qSik5ODIIgdBN3VD1AHQXB3KiR2EkGEfoCOXZKoyT0uioK2NFXp4m+7u+fl7j8c8E+3kU6NA7Y9EpG7FOknUHpy3cfmBblcj6nUbLKryTaBB5A1EdkEuf75ONT6BtXqS+pt3QuldhIVkJMK2A+UujfJ0he/1h6ARscjshynSK2PIRIBOAtdd6/TrKZkZmaG+qanR389OAnfjijtOItCHgsZCLDie573s4JCwbLiePN9k8CWElkimSVwIMB50uDAME5QqQSqpYoUiDBp+Ge+H9HU1IIYxhHJwADWfNe9/UnJn2Ik1Eu6UBiPh4efUK+/tGVIEm7Z9hVFxkD2a8NYfK5U7toryOUyZip10VJJmgAGQ9edSNv2hgDbEKk1k4dRVES12nj/i3xofdgyX8QU4NRynGWQ8xq4FK2vW1j8jxe0iZnPz0HrVYjch9lsCeVynMT/T3d4Bdw1hRbnkGRtAAAAAElFTkSuQmCC" alt="filtro">
+                        <span>Filtro</span>
+                    </button>
+                    <button class="filter-btn">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAXFJREFUSInllLFKw1AYhb9zLaa+QnFyqbtJxFWfouDgI4iLm4sO4qCvIIq00Hcork1fwOLqGzjUisnvUImh6W2jVhA82z05/N9N8nPgl6Vpox5FG8DOy2BwV/TXtrfXMWsBrmBnSO1Rv//kA9SKhyAMm0APqRFEUTgeDI4AA7AsO0A6LU3IsgA48wHy2wRh2JTUQ2oASDoMougyf0upNnOCzy8C6lG0IefukYRZh8m1ryQdBnF8Pm/AIrmP224Bz1ma7iINAcZJcmRwIdj7CaAGMEqSLtAFqMdx/nCcJMf5wewNlXZi4i8CVJGcuzZYxWz109SrpOulAD5W8aRq/suAtThuGdwCK55IKml/1O93iqbzhEsyaM4ZDrBiZpvTZmXAd/WPAIIhkM6JpJIeps3qa5okbaBdNf9lgKeufcprvDLAW9dexKTGq//kBbXsy/+dLVoeYFK/5XVcUMu+fOm7KstucO6x5M+qa58q1PjS9A704nc9L2x0dgAAAABJRU5ErkJggg==" alt="orden">
+                        <span>Orden</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Vehicle Card -->
+            <div class="vehicle-card">
+                <div class="vehicle-card__image">
+                    <img src="/assets/porsche_911-21QpIi3n.jpg" alt="Porsche 911 Carrera 4S">
+                </div>
+                <div class="vehicle-card__info">
+                    <span class="vehicle-year">2013</span>
+                    <div class="vehicle-card__main">
+                        <h2 class="vehicle-name">Porsche 911 Carrera 4S</h2>
+                        <span class="vehicle-model">3.8L Carrera 4S</span>
+                    </div>
+                    <div class="vehicle-card__footer">
+                        <span class="vehicle-km">68.500 km</span>
+                        <button class="vehicle-like" aria-label="Guardar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vehicle-card">
+                <div class="vehicle-card__image">
+                    <img src="/assets/Audi_R8-BPOtQxOG.jpg" alt="Audi R8">
+                </div>
+                <div class="vehicle-card__info">
+                    <span class="vehicle-year">2013</span>
+                    <div class="vehicle-card__main">
+                        <h2 class="vehicle-name">Audi R8</h2>
+                        <span class="vehicle-model">4.2 FSI V8</span>
+                    </div>
+                    <div class="vehicle-card__footer">
+                        <span class="vehicle-km">68.500 km</span>
+                        <button class="vehicle-like" aria-label="Guardar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vehicle-card">
+                <div class="vehicle-card__image">
+                    <img src="/assets/BMW_M4_Competition-d4gFvgPa.jpg" alt="BMW M4 Competition">
+                </div>
+                <div class="vehicle-card__info">
+                    <span class="vehicle-year">2022</span>
+                    <div class="vehicle-card__main">
+                        <h2 class="vehicle-name">BMW M4 Competition</h2>
+                        <span class="vehicle-model">3.0 TwinPower Turbo</span>
+                    </div>
+                    <div class="vehicle-card__footer">
+                        <span class="vehicle-km">35.000 km</span>
+                        <button class="vehicle-like" aria-label="Guardar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="ver-mas-container">
+                <button class="btn-ver-mas">Ver más</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="contacto_container" id="contacto">
+        <div class="contacto-header">
+            <span class="contacto-subtitle">Hacemos tu decision mas facil</span>
+            <h2 class="contacto-title">Encuentra tu auto ideal</h2>
+        </div>
+
+        <div class="gallery-container">
+            <div class="gallery-track" id="galleryTrack">
+                <!-- Se genera dinámicamente desde CARDS_DATA en scroll_card.js -->
+            </div>
+        </div>
+
+        <!-- Indicador de progreso (1 | 5) -->
+        <div class="gallery-counter">
+            <span class="counter-num" id="counterCurrent">1</span>
+            <span class="counter-divider"></span>
+            <span class="counter-total" id="counterTotal">5</span>
+        </div>
+
+        <!-- Social Proof inferior derecho -->
+        <div class="gallery-social-proof">
+            <span class="social-proof-text">Con la confianza de mas<br>de 100 clientes</span>
+            <div class="social-proof-avatars">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&q=80"
+                    alt="Cliente">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80"
+                    alt="Cliente">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&q=80"
+                    alt="Cliente">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&q=80"
+                    alt="Cliente">
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Sección CTA: "Encuentra tu próximo motor" -->
+    <section class="cta-motor-section">
+        <div class="cta-motor-container">
+            <h2 class="cta-motor-title">Encuentra tu proximo<br>motor</h2>
+            <div class="cta-motor-actions">
+                <a href="#contacto-form" class="btn-cta btn-cta--contact">Contactanos</a>
+                <a href="#ubicacion" class="btn-cta btn-cta--location">Ubicacion</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Preguntas Frecuentes y Contacto Concesionaria -->
+    <section class="faq-section" id="contacto-form">
+        <div class="faq-container">
+            <!-- Columna Izquierda: Formulario de Contacto -->
+            <div class="faq-contact-col">
+                <div class="faq-contact-header">
+                    <h2 class="faq-title">Ponerse en<br>contacto</h2>
+                    <p class="faq-subtitle">¿Tienes alguna consulta sobre un modelo o deseas cotizar tu próximo vehículo? Déjanos tus datos y un asesor se pondrá en contacto contigo.</p>
+                </div>
+
+                <form class="faq-form" id="dealershipContactForm">
+                    <div class="faq-input-group">
+                        <input type="text" placeholder="Ingresa tu nombre" class="faq-input" required>
+                    </div>
+                    <div class="faq-input-group">
+                        <input type="email" placeholder="Ingresa un correo electrónico válido" class="faq-input" required>
+                    </div>
+                    <div class="faq-input-group">
+                        <textarea placeholder="Ingresa tu mensaje o consulta..." class="faq-textarea" required></textarea>
+                    </div>
+                    <button type="submit" class="faq-submit-btn">Enviar</button>
+                </form>
+            </div>
+
+            <!-- Columna Derecha: Acordeón de Preguntas Frecuentes -->
+            <div class="faq-accordion-col">
+                <div class="faq-accordion-box">
+                    <!-- Item 1 (Abierto por defecto tal como en la imagen) -->
+                    <div class="faq-item is-open">
+                        <button class="faq-question-btn" type="button" aria-expanded="true">
+                            <span class="faq-question-text">¿Aceptan vehículos usados como parte de pago?</span>
+                            <svg class="faq-arrow" viewBox="0 0 10 10">
+                                <polygon points="0,0 10,5 0,10" />
+                            </svg>
+                        </button>
+                        <div class="faq-answer-wrapper">
+                            <p class="faq-answer-content">
+                                Sí, recibimos tu vehículo actual en parte de pago o consignación. Realizamos un peritaje técnico y mecánico sin cargo en nuestro showroom para brindarte la cotización más competitiva del mercado y facilitar la entrega de tu próximo auto.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="faq-item">
+                        <button class="faq-question-btn" type="button" aria-expanded="false">
+                            <span class="faq-question-text">¿Qué opciones de financiación y créditos ofrecen?</span>
+                            <svg class="faq-arrow" viewBox="0 0 10 10">
+                                <polygon points="0,0 10,5 0,10" />
+                            </svg>
+                        </button>
+                        <div class="faq-answer-wrapper">
+                            <p class="faq-answer-content">
+                                Disponemos de múltiples alternativas de financiación a medida: créditos prendarios con tasa fija o variable, financiación directa de hasta el 50% de la unidad en cuotas en pesos, y convenios bancarios con pre-aprobación en el día.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="faq-item">
+                        <button class="faq-question-btn" type="button" aria-expanded="false">
+                            <span class="faq-question-text">¿Los autos cuentan con garantía y certificación mecánica?</span>
+                            <svg class="faq-arrow" viewBox="0 0 10 10">
+                                <polygon points="0,0 10,5 0,10" />
+                            </svg>
+                        </button>
+                        <div class="faq-answer-wrapper">
+                            <p class="faq-answer-content">
+                                Todos nuestros vehículos atraviesan una inspección técnica rigurosa de más de 120 puntos (motor, tren delantero, electrónica, frenos y estructura) e incluyen garantía escrita de 6 a 12 meses certificada por DealPush.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="faq-item">
+                        <button class="faq-question-btn" type="button" aria-expanded="false">
+                            <span class="faq-question-text">¿Cómo puedo coordinar una prueba de manejo (Test Drive)?</span>
+                            <svg class="faq-arrow" viewBox="0 0 10 10">
+                                <polygon points="0,0 10,5 0,10" />
+                            </svg>
+                        </button>
+                        <div class="faq-answer-wrapper">
+                            <p class="faq-answer-content">
+                                Puedes solicitar tu turno completando el formulario de contacto o comunicándote vía WhatsApp. Reservamos el auto de tu interés en nuestro showroom para que vivas una experiencia de manejo completa y personalizada.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="faq-item">
+                        <button class="faq-question-btn" type="button" aria-expanded="false">
+                            <span class="faq-question-text">¿Gestionan transferencias y envíos al interior del país?</span>
+                            <svg class="faq-arrow" viewBox="0 0 10 10">
+                                <polygon points="0,0 10,5 0,10" />
+                            </svg>
+                        </button>
+                        <div class="faq-answer-wrapper">
+                            <p class="faq-answer-content">
+                                Nuestro equipo oficial de gestoría realiza el 100% de la documentación y transferencia registral. También coordinamos el traslado asegurado puerta a puerta en batea especializada a cualquier punto del país.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer: "No te pierdas lo que sigue" con bordes redondeados superiores -->
+    <footer class="footer-section" id="footer">
+        <div class="footer-curved-wrapper">
+            <div class="footer-top">
+                <!-- Columna Izquierda: Newsletter -->
+                <div class="footer-col footer-col--newsletter">
+                    <h3 class="footer-heading">No te pierdas lo que sigue</h3>
+                    <form class="footer-newsletter-form" onsubmit="event.preventDefault();">
+                        <div class="newsletter-input-wrapper">
+                            <input type="email" placeholder="Tu correo electronico" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-submit" aria-label="Enviar">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                    <p class="footer-disclaimer">
+                        Al enviar su correo electrónico, será el primero en enterarse de las próximas novedades de DealPush. Puedes darte de baja en cualquier momento.
+                    </p>
+                </div>
+
+                <!-- Columna Central: Social -->
+                <div class="footer-col footer-col--social">
+                    <span class="footer-col-title">Social</span>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">INSTAGRAM</a></li>
+                        <li><a href="#" class="footer-link">TIKTOK</a></li>
+                        <li><a href="#" class="footer-link">FACEBOOK</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna Derecha: Contacto -->
+                <div class="footer-col footer-col--contact">
+                    <span class="footer-col-title">Contacto</span>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">COMUNIQUESE CON NOSOTROS</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Barra inferior -->
+            <div class="footer-bottom">
+                <span class="footer-copy">&copy;2026 Hecho por DealPush</span>
+                <div class="footer-legal">
+                    <a href="#">Permisos y términos</a>
+                    <a href="#">Política de privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Nav Menu Overlay -->
+    <div class="nav-overlay" id="navOverlay"></div>
+    <nav class="nav-menu" id="navMenu" aria-hidden="true">
+        <ul class="nav-menu__list">
+            <li class="nav-menu__item nav-menu__item--active"><a href="#" class="nav-menu__link">Inicio</a></li>
+            <li class="nav-menu__item"><a href="#catalogo" class="nav-menu__link">Catálogo</a></li>
+            <li class="nav-menu__item"><a href="#contacto" class="nav-menu__link">Modelos</a></li>
+            <li class="nav-menu__item"><a href="#contacto-form" class="nav-menu__link">Financiación</a></li>
+            <li class="nav-menu__item"><a href="#contacto-form" class="nav-menu__link">Tasación & Contacto</a></li>
+        </ul>
+    </nav>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+    <script src="./scrollLetra.js"></script>
+    <script src="./menu.js"></script>
+    <script src="./scroll_card.js?v=3.0"></script>
+    <script src="./faq.js"></script>
+</body>
+
+</html>
