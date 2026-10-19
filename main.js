@@ -31,7 +31,7 @@ gsap.ticker.lagSmoothing(0);
 const hdrLoader = new EXRLoader();
 
 hdrLoader.load(
-  './texture/fondo3.exr',
+  '/texture/fondo3.exr',
   (texture) => {
     texture.mapping = THREE.EquirectangularReflectionMapping;
 
@@ -99,7 +99,7 @@ let carModel = null;
 status.textContent = 'THREE.JS — LOADING CAR';
 
 loader.load(
-  './models/auto1.1.glb',
+  '/models/auto1.1.glb',
 
   (gltf) => {
     carModel = gltf.scene;
