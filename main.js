@@ -281,3 +281,8 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
 // Refresh ScrollTrigger so all positions align with Lenis
 ScrollTrigger.refresh();
+
+// Delayed refresh to ensure scroll_card.js ScrollTriggers sync with Lenis
+window.addEventListener('load', () => {
+  setTimeout(() => ScrollTrigger.refresh(true), 300);
+});

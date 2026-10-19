@@ -11,13 +11,13 @@ const CARDS_DATA = [
     {
         id: 1,
         title: "BMW M4 Competition",
-        image: "./texture/BMW_M4_Competition.jpg",
+        image: "/texture/BMW_M4_Competition.jpg",
         level: "high"   // Alto (-95px)
     },
     {
         id: 2,
         title: "Porsche 911 Carrera",
-        image: "./texture/porsche_911.jpg",
+        image: "/texture/porsche_911.jpg",
         level: "low"    // Bajo (+85px, primer plano central)
     },
     {
@@ -29,7 +29,7 @@ const CARDS_DATA = [
     {
         id: 4,
         title: "Audi R8 V10 Plus",
-        image: "./texture/Audi_R8.jpg",
+        image: "/texture/Audi_R8.jpg",
         level: "high"   // Alto (-95px)
     },
     {
