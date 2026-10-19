@@ -1,0 +1,258 @@
+:root {
+    --c-bg: #e4e4e5;
+    --c-text: #1a1a1a;
+    --c-light: #e4e4e5;
+    --c-normal: #9b9fa0;
+    --c-dark: #1c3535;
+    --c-darker: #0c2624;
+    --bg-light: #F5F5F5;
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+
+.example {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* --- Sección Contenedor de la Galería (Fondo Verde Petróleo / Dark Teal) --- */
+.contacto_container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #0c2624;
+  background: radial-gradient(circle at 50% 50%, #0e2e2b 0%, #081a18 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* --- Encabezado Superior Minimalista --- */
+.contacto-header {
+  position: absolute;
+  top: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 25;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contacto-subtitle {
+  font-family: 'Sansation', sans-serif;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+.contacto-title {
+  font-family: 'Sansation', sans-serif;
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+/* --- Track Horizontal de Tarjetas --- */
+.gallery-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.gallery-track {
+  display: flex;
+  align-items: center;
+  /* Espaciado negativo para lograr el solapamiento visual idéntico a la referencia */
+  gap: 0;
+  padding-left: calc(50vw - 220px);
+  padding-right: calc(50vw - 220px);
+  will-change: transform;
+}
+
+/* --- Tarjeta: Fotografía pura, rectangular y limpia --- */
+.gallery-card {
+  flex-shrink: 0;
+  width: 440px;
+  height: 290px;
+  margin-right: -75px; /* Solapamiento horizontal entre tarjetas consecutivas */
+  border-radius: 2px;
+  background: #081615;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  transform-origin: center center;
+  will-change: transform, opacity, filter;
+  transition: filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- Niveles de Zig-Zag (mediante margin-top estructural fijo) --- */
+.gallery-card--high {
+  margin-top: -95px !important;
+}
+
+.gallery-card--low {
+  margin-top: 85px !important;
+}
+
+.gallery-card--mid {
+  margin-top: -30px !important;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+/* --- Indicador Inferior Izquierdo (1 | 5) --- */
+.gallery-counter {
+  position: absolute;
+  bottom: 40px;
+  left: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  z-index: 25;
+  font-family: 'Sansation', sans-serif;
+  color: #ffffff;
+  pointer-events: none;
+}
+
+.counter-num {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.counter-divider {
+  width: 1px;
+  height: 38px;
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.counter-total {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1;
+}
+
+/* --- Social Proof Inferior Derecho --- */
+.gallery-social-proof {
+  position: absolute;
+  bottom: 40px;
+  right: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  z-index: 25;
+  pointer-events: none;
+}
+
+.social-proof-text {
+  font-family: 'Sansation', sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
+  text-align: right;
+  line-height: 1.35;
+}
+
+.social-proof-avatars {
+  display: flex;
+  align-items: center;
+}
+
+.social-proof-avatars img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid #0c2624;
+  margin-left: -8px;
+  object-fit: cover;
+}
+
+.social-proof-avatars img:first-child {
+  margin-left: 0;
+}
+
+/* --- Adaptación Responsive --- */
+@media (max-width: 900px) {
+  .gallery-card {
+    width: 330px;
+    height: 220px;
+    margin-right: -50px;
+  }
+  .gallery-card--high {
+    margin-top: -45px !important;
+  }
+  .gallery-card--low {
+    margin-top: 40px !important;
+  }
+  .gallery-card--mid {
+    margin-top: -15px !important;
+  }
+  .gallery-track {
+    padding-left: calc(50vw - 165px);
+    padding-right: calc(50vw - 165px);
+  }
+  .contacto-header {
+    top: 25px;
+  }
+  .contacto-title {
+    font-size: 22px;
+  }
+  .gallery-counter {
+    bottom: 25px;
+    left: 25px;
+  }
+  .gallery-social-proof {
+    bottom: 25px;
+    right: 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-card {
+    width: 270px;
+    height: 180px;
+    margin-right: -40px;
+  }
+  .gallery-card--high {
+    margin-top: -30px !important;
+  }
+  .gallery-card--low {
+    margin-top: 30px !important;
+  }
+  .gallery-card--mid {
+    margin-top: -10px !important;
+  }
+  .gallery-track {
+    padding-left: calc(50vw - 135px);
+    padding-right: calc(50vw - 135px);
+  }
+  .gallery-counter {
+    display: none;
+  }
+  .gallery-social-proof {
+    display: none;
+  }
+}

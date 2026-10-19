@@ -1,0 +1,270 @@
+/* ==========================================================================
+   FAQ & CONTACT SECTION — style/faq.css
+   Diseño de Preguntas Frecuentes y Formulario de Contacto para Concesionaria
+   Mantiene la tipografía Sansation, JetBrains Mono y paleta DealPush
+   ========================================================================== */
+
+.faq-section {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 100px 24px 120px 24px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+.faq-container {
+    width: 100%;
+    max-width: 1240px;
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 60px;
+    align-items: start;
+}
+
+/* ──────────────────────────────────────────
+   COLUMNA IZQUIERDA: Formulario de Contacto
+────────────────────────────────────────── */
+.faq-contact-col {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.faq-contact-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.faq-title {
+    font-family: 'Sansation', sans-serif;
+    font-size: clamp(34px, 4.5vw, 48px);
+    font-weight: 700;
+    color: #0d1f1f;
+    line-height: 1.15;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.faq-subtitle {
+    font-family: 'Sansation', sans-serif;
+    font-size: 15px;
+    color: #637070;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.faq-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.faq-input-group {
+    width: 100%;
+}
+
+.faq-input,
+.faq-textarea {
+    width: 100%;
+    background-color: #f0f2f2;
+    border: 1px solid rgba(13, 31, 31, 0.08);
+    border-radius: 6px;
+    padding: 16px 20px;
+    font-family: 'Sansation', sans-serif;
+    font-size: 14px;
+    color: #0d1f1f;
+    box-sizing: border-box;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+.faq-input::placeholder,
+.faq-textarea::placeholder {
+    color: #8c9797;
+    font-weight: 300;
+}
+
+.faq-input:focus,
+.faq-textarea:focus {
+    background-color: #ffffff;
+    border-color: #0c2624;
+    box-shadow: 0 0 0 3px rgba(12, 38, 36, 0.12);
+}
+
+.faq-textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.faq-submit-btn {
+    align-self: flex-start;
+    background-color: #0c2624;
+    color: #ffffff;
+    font-family: 'Sansation', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 38px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(12, 38, 36, 0.25);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    letter-spacing: 0.5px;
+    margin-top: 6px;
+}
+
+.faq-submit-btn:hover {
+    background-color: #16403d;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(12, 38, 36, 0.35);
+}
+
+.faq-submit-btn:active {
+    transform: translateY(0);
+}
+
+/* ──────────────────────────────────────────
+   COLUMNA DERECHA: Acordeón de FAQ
+────────────────────────────────────────── */
+.faq-accordion-col {
+    width: 100%;
+}
+
+.faq-accordion-box {
+    background-color: #f2f5f5;
+    border-radius: 8px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-sizing: border-box;
+    border: 1px solid rgba(13, 31, 31, 0.05);
+}
+
+.faq-item {
+    background-color: #ffffff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    border: 1px solid transparent;
+}
+
+.faq-item.is-open {
+    border-color: rgba(12, 38, 36, 0.15);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.faq-question-btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 18px 22px;
+    text-align: left;
+    cursor: pointer;
+    gap: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.faq-question-btn:hover {
+    background-color: #fafbfb;
+}
+
+.faq-question-text {
+    font-family: 'Sansation', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a2e2e;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+}
+
+.faq-item.is-open .faq-question-text {
+    color: #0c2624;
+}
+
+/* Flecha de control */
+.faq-arrow {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    fill: #1a2e2e;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), fill 0.2s ease;
+}
+
+.faq-item.is-open .faq-arrow {
+    transform: rotate(90deg);
+    fill: #0c2624;
+}
+
+/* Respuesta desplegable */
+.faq-answer-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
+}
+
+.faq-item.is-open .faq-answer-wrapper {
+    max-height: 250px;
+}
+
+.faq-answer-content {
+    padding: 0 22px 20px 22px;
+    font-family: 'Sansation', sans-serif;
+    font-size: 14px;
+    color: #4a5959;
+    line-height: 1.65;
+    margin: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.04);
+    padding-top: 14px;
+}
+
+/* ──────────────────────────────────────────
+   RESPONSIVE DESIGN
+────────────────────────────────────────── */
+@media (max-width: 992px) {
+    .faq-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    .faq-section {
+        padding: 80px 20px 90px 20px;
+    }
+    .faq-accordion-box {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .faq-section {
+        padding: 60px 16px 70px 16px;
+    }
+    .faq-title {
+        font-size: 32px;
+    }
+    .faq-accordion-box {
+        padding: 16px;
+        gap: 12px;
+    }
+    .faq-question-btn {
+        padding: 14px 16px;
+    }
+    .faq-question-text {
+        font-size: 15px;
+    }
+    .faq-answer-content {
+        padding: 0 16px 16px 16px;
+        font-size: 13px;
+    }
+    .faq-submit-btn {
+        width: 100%;
+        text-align: center;
+    }
+}

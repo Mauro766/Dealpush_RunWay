@@ -22,8 +22,12 @@ export function applyDissolveShader(root, mode = 'dissolve') {
       const material = original.clone();
 
       const uniforms = {
-        uDissolve: { value: mode === 'reveal' ? 0 : 0 },
-        uMode: { value: mode === 'reveal' ? 1 : 0 },
+        uDissolve: {
+          value: mode === 'reveal' ? 0 : 1
+        },
+        uMode: {
+          value: mode === 'reveal' ? 1 : 0
+        },
         uEdgeWidth: { value: 0.045 },
         uEdgeColor: { value: new THREE.Color(0x168bff) }
       };
